@@ -90,3 +90,11 @@ git log -3
     显示3条日志
 
 
+强制合并一个未跟踪的版本库
+添加一个无关的git remote时,git pull 或者mearge 时会提示 fatal:拒绝合并无关的历史,使用下面两个命令解决:
+1.首先将远程仓库和本地仓库关联起来：
+    git branch --set-upstream-to=origin/master master
+2.然后使用git pull整合远程仓库和本地仓库，
+    git pull --allow-unrelated-histories    (忽略版本不同造成的影响)
+完成，问题解决
+
