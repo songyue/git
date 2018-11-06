@@ -1,0 +1,30 @@
+git补丁patch使用方法
+通过两种方式创建,通过diff生成补丁的方式不推荐,这里不讲解,主要说明 format-patch 的方式, 操作步骤如下:
+1.切换到新分支
+    git checkout -b Fix
+2.修改bug
+    ....
+3.提交分支
+    git commit -a -m 'Fix1'
+4.生成补丁(-M 对哪个分支生成补丁)
+    git format-patch -M master
+0001-Fix1.patch
+5.切换回主分支
+    git checkout master
+6.创建补丁分支
+    git branch PATCH
+7.切换到补丁分支
+    git checkout PATCH
+8.应用补丁到当前分支
+    git am 001-Fix1.patch
+9.提交补丁
+    git commit -a -m "PATCH apple"
+##### 到这一步已经完成了补丁操作,下面的应为git主用户操作合并
+10.切换到主分支,合并补丁分支
+    git checkout master
+11.合并补丁
+    git merge PATCH
+12.提交到git中心服务器
+   git push 
+
+到这里全部操作完成了
