@@ -87,7 +87,12 @@ git log -L '/int main/',/^}/:main.c
 git log -L '/uploadAuthKey/',/}$/:application/modules/Api/controllers/Record.php
     显示uploadAuthKey 函数的修改历史
 git log -3
-    显示3条日志
+    显示yue.song的用户日志
+git log --author=yue.song
+    显示yue.songyue用户的2018-11-04日的log
+git log --author=yue.song --since=2018-11-06 --before=2018-11-07
+       --since=<date>, --after=<date>
+       --until=<date>, --before=<date>
 
 
 强制合并一个未跟踪的版本库

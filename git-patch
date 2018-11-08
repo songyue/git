@@ -27,4 +27,11 @@ git补丁patch使用方法
 12.提交到git中心服务器
    git push 
 
-到这里全部操作完成了
+到这里全部操作完成了,注意每次操作完成需要执行一下 git am --abort  才可以使用使用新的am
+
+
+一些其他操作
+检查pacth文件 git apply --stat 0001-Fix1.patch
+检查能否应用成功 git apply --check 0001-Fix1.patch
+打补丁      git am --signoff < 0001-Fix1.patch
+(使用-s或--signoff选项，可以commit信息中加入Signed-off-by信息)
