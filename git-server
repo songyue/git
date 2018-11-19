@@ -1,0 +1,44 @@
+git 服务器配置
+
+安装git
+apt-get install git
+创建git用户
+adduser git
+设置密码
+password git 
+添加公钥
+vim /home/git/.ssh/authorized_keys
+提示没有.ssh目录的,使用ssh-keygen创建密钥自动生成目录和公钥文件
+创建版本库目录,注意目录权限要修改为git所有
+mkdir /home/git/repositories
+配置git用户权限,禁止登录
+vim /etc/passwd 
+修改    git:x:1000:1000::/home/git:/bin/bash
+为      git:x:1000:1000::/home/git:/usr/local/git/bin/git-shell
+注意上面的git-shell路径不一定是相同的,确认自己的路径 创建一个git项目库
+
+创建git项目库
+git init --bare vue.git
+chown -R git:git vue.git
+这和我们本地使用git相同,只是加了一个bare参数,创建了一个裸仓库,之后要修改下owner
+
+客户端克隆项目
+git clone git@{host}:repositories/vue.git
+配置自动部署
+提交版本时自动更新发布到web目录
+cd /home/git/repositories/vue.git/hooks
+vim post-receive.sample
+添加:
+DEPLOY_PATH=/webdata/vue/
+
+unset  GIT_DIR #这条命令很重要
+cd $DEPLOY_PATH
+git reset --hard
+git pull
+#chown git:www -R $DEPLOY_PATH
+
+另存为 post-receive
+:w post-receive
+
+
+
