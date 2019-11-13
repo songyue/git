@@ -1,0 +1,11 @@
+Git-svn：用git管理svn仓库
+1. 将svn仓库中的项目导入本地git仓库
+使用 git svn clone [svn_url] 命令即可完成从svn仓库导入本地，由于该命令会将svn仓库中所有版本的更新都会同步到本地仓库，如果项目更新次数过多会花费很长的时间，所以我们可以通过指定版本号以避免不必要的更新
+
+　　如：git svn clone -r281:HEAD [svn_url] [new_name] ,r281为最新的版本，使用 svn info 查看 Revision: 281
+
+2. 提交本地git仓库更新到svn仓库
+新建一个文本a.txt，通过 git commit -am 'commit_info' 来把工作区的修改提交到本地仓库，然后通过git svn dcommit 命令将本地仓库的修改同步到远程svn仓库
+
+3.从svn仓库更新到本地git仓库
+　　通过 git svn rebase 即可完成更新操作
