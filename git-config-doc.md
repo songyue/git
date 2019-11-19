@@ -107,3 +107,6 @@ git log --author=yue.song --since=2018-11-06 --before=2018-11-07
 git diff中,一个tab缩进的宽度默认的是8个空格,个人习惯是4个空格,
 git config --global core.pager 'less -x1,5' # 4个空格
 git config --global core.pager 'less' # 默认 8个空格
+
+设置git默认编辑器
+ git config --global core.editor vim
