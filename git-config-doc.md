@@ -103,3 +103,7 @@ git log --author=yue.song --since=2018-11-06 --before=2018-11-07
     git pull --allow-unrelated-histories    (忽略版本不同造成的影响)
 完成，问题解决
 
+
+git diff中,一个tab缩进的宽度默认的是8个空格,个人习惯是4个空格,
+git config --global core.pager 'less -x1,5' # 4个空格
+git config --global core.pager 'less' # 默认 8个空格
