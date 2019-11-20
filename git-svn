@@ -9,3 +9,9 @@ Git-svn：用git管理svn仓库
 
 3.从svn仓库更新到本地git仓库
 　　通过 git svn rebase 即可完成更新操作
+
+解决冲突后，git add 文件，再次执行：
+git rebase --continue
+
+注意 ubuntu 系统的git默认没有git-svn支持，需要单独安装 :
+sudo apt-get install git-svn
