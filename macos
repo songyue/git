@@ -1,0 +1,6 @@
+macos tab补全功能
+
+brew install git bash-completion
+
+Add the following line to your ~/.bash_profile:
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
