@@ -4,3 +4,11 @@ brew install git bash-completion
 
 Add the following line to your ~/.bash_profile:
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+修改未push的commit
+git commit --amend
+
+查看文件每一行最后修改的人
+git blame -L 171,172 config/app.php
+993fe041f (liang 2018-12-26 17:39:42 +0800 171)         \App\Libs\xxxSServiceProvider::class,
+bc2611857 (刘   2019-07-19 17:06:55 +0800 172)         \App\Libs\xxx2ServiceProvider::class,
