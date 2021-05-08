@@ -1,0 +1,14 @@
+# 指定目录使用单独的配置文件
+# 公司项目在 work/xxx 下，需要配置公司的 user 信息
+# vim ~/.gitconfig
+[user]
+    name=songyue
+    email=songyue118@gmail.com
+[includeIf "gitdir:~/work/xxx/"]
+    path = "~/work/xxx/.gitconfig"
+
+# cat "~/work/xxx/.gitconfig"
+#    [user]
+#         # Please adapt and uncomment the following lines:
+#        name = v_songyue
+#        email = v_songyue@xxx.com
